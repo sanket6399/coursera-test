@@ -21,7 +21,6 @@ angular.module('LunchCheck', [])
     }
     var totalNameValue = calculateCommasInString($scope.name);
     var sendmsg = "";
-
     if (!word){
       sendmsg = "Please enter data first"
     }

@@ -22,7 +22,7 @@ angular.module('LunchCheck', [])
     var totalNameValue = calculateCommasInString($scope.name);
     var sendmsg = "";
     if (!word){
-      sendmsg = "Please enter data first"
+      sendmsg = "Please enter data first";
     }
     else if (totalNameValue < 4){
       sendmsg = "Enjoy!";

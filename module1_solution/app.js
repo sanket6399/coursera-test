@@ -7,10 +7,22 @@ angular.module('LunchCheck', [])
   $scope.name = "";
   $scope.displaymsg = ""
   $scope.display = function () {
-    var empty = checkEmpty($scope.name);
+    var word = 0;
+    var i = 0;
+    while($scope.name.length){
+      if($scope.name[i]==" "){
+        i++;
+        continue;
+      }
+      else{
+        word = 1;
+        break;
+      }
+    }
     var totalNameValue = calculateCommasInString($scope.name);
     var sendmsg = "";
-    if (!empty){
+
+    if (!word){
       sendmsg = "Please enter data first"
     }
     else if (totalNameValue < 4){
@@ -22,19 +34,6 @@ angular.module('LunchCheck', [])
     $scope.displaymsg = sendmsg;
   };
 
-  function checkEmpty(string){
-    var word = 0;
-    for(var i = 0; i < string.length; i++){
-      if(string.name[i]==" "){
-        continue;
-      }
-      else{
-        word = 1;
-        break;
-      }
-    }
-    return word;
- }
   function calculateCommasInString(string) {
     var comma = string.split(",")
     return comma.length;

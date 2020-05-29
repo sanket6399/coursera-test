@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" ng-app='ShoppingListApp'>
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      .divback{
+        background-color: mediumvioletred;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+        background: #ffe5e5;
+        padding: 5px;
+
+      }
+      li > button {
+        margin-left: 15px;
+      }
+      button > span {
+        color: green;
+      }
+    </style>
+  </head>
+<body>
+  <div class="container" style = "font-family:georgia" >
+  <h1 align = "Center">Shopping List Check Off</h1>
+
+  <div class="row">
+
+    <div class="col-md-6" ng-controller='ShoppingListAddController as ctrl1'>
+
+     <h2 align ="Center" style="color: blue">To Buy:</h2>
+     <ul >
+       <li ng-repeat="item in ctrl1.items">
+          {{ item.quantity }} bags of {{ item.Name }}
+          <button class="btn btn-default" ng-click = "ctrl1.removeItem($index);"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+     </ul>
+     <div class="emptyMessage" ng-if="! ctrl1.items.length" align ="Center">Everything is bought!</div>
+    </div>
+
+    <div class="col-md-6" ng-controller='ShoppingListShowController as ctrl2'>
+     <h2 align ="Center" style="color: blue">Already Bought:</h2>
+     <ul>
+       <li ng-repeat="item in ctrl2.items">Bought {{ item.quantity }} bags of {{ item.Name }}</li>
+     </ul>
+     <div class="emptyMessage" ng-if = "!ctrl2.items.length" align ="Center">Nothing bought yet.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

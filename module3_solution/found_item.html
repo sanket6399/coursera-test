@@ -1,0 +1,6 @@
+<table>
+   <tr style = "height: 45px"ng-repeat="item in list.foundItem track by $index">
+     <td>{{ item }}</td>
+     <td><button class = "btn" style="background-color: black; color: red; height: 32px;" ng-click="list.removeItem($index);">Don't want this!</button></td>
+   </tr>
+</table>

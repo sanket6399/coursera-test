@@ -3,16 +3,16 @@
 angular.module('NarrowItDownApp',[])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-//.directive('foundItem', foundItem)
+.directive('foundItem', foundItem)
 .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
-/*
+
 function foundItem() {
   var ddo = {
     templateUrl: 'found_item.html'
   };
 
   return ddo;
-}*/
+}
 
 NarrowItDownController.$inject = ['MenuSearchService', '$filter'];
 function NarrowItDownController(MenuSearchService, $filter){
